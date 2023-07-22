@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+       <table align="center" border="1" [ngStyle]="mystyles">
+        <caption>*** Employee Data ***</caption>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Delete items</th>
+        </tr>
+        <tr *ngFor="let i of empList; index as j">
+            <td>{{i.id}}</td>
+            <td>{{i.ename}}</td>
+            <td>{{i.salary}}</td>
+            <td><input type="submit" value="Delete" [style.margin]="'4px'" (click)="delete(j)"/></td>
+        </tr>
+       </table>
+    </ol>
+</body>
+</html>
