@@ -1,0 +1,106 @@
+/* Add any additional CSS for locked state */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .coin-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .coin {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: #f5c200;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .coin img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .countdown-timer {
+    position: absolute;
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    z-index: 1;
+  }
+  
+  .waves {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(0, 0, 255, 0.2);
+    animation: wave 1.5s infinite ease-out;
+    z-index: 0;
+    opacity: 0;
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: scale(0);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+  
+  .score-display {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    color: red;
+    margin-top: 20px;
+  }
+  
+  ion-header {
+    ion-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    ion-buttons[slot='start'] {
+      padding: 0;
+    }
+  
+    ion-button {
+      --padding-start: 0;
+      --padding-end: 0;
+    }
+  }
+  

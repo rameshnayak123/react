@@ -1,0 +1,7 @@
+{
+  "name": "coinswapx",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
