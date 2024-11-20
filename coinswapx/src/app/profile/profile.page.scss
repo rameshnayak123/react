@@ -1,44 +1,60 @@
-.profile-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .profile-image-container {
-    margin-bottom: 20px;
-  }
-  
-  .profile-avatar {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-  }
-  
-  .user-info {
-    margin-bottom: 30px;
-  }
-  
-  .user-info h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
-  .user-info p {
-    font-size: 16px;
-    color: #777;
-  }
-  
-  ion-tabs {
-    --background: #f4f4f4;
-  }
-  
-  ion-tab-bar {
-    --background: #ffffff;
-    --color-selected: #3880ff;
-  }
-  
-  ion-tab-button {
-    font-size: 14px;
-    text-transform: uppercase;
-  }
-  
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  padding: 5px;
+  text-align: center;
+ 
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 6px;
+}
+
+.user-details h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 3px 0;
+}
+
+.user-details p {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Adjust the tab styling */
+ion-tabs {
+  --background: #f4f4f4;
+}
+
+ion-tab-bar {
+  --background: #ffffff;
+  --color-selected: #3880ff;
+}
+
+ion-tab-button {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+ion-list {
+  margin-top: 2px;
+}
+
+ion-item {
+  --min-height: 5px;
+}
+
+ion-item ion-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+ion-item p {
+  font-size: 14px;
+  color: #777;
+}

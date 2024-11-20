@@ -1,64 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>User Profile</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="profile-container">
-    
+<!-- Profile Info Section (Fixed at top) -->
+  <div class="profile-info">
     <!-- Profile Image Section -->
-    <div class="profile-image-container">
-      <ion-avatar class="profile-avatar">
-        <img [src]="user.profileImage" alt="Profile Image" />
-      </ion-avatar>
-    </div>
+    <ion-avatar class="profile-avatar">
+      <img [src]="user.profileImage" alt="Profile Image" />
+    </ion-avatar>
 
     <!-- User Info Section -->
-    <div class="user-info">
+    <div class="user-details">
       <h2>{{ user.name }}</h2> <!-- Display User's Name -->
       <p>User ID: {{ user.id }}</p> <!-- Display User's ID -->
     </div>
-
-    <!-- Tabs Section: Achievements and Take Away -->
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <!-- Achievements Tab -->
-        <ion-tab-button tab="achievements">
-          <ion-label>Achievements</ion-label>
-        </ion-tab-button>
-
-        <!-- Take Away Tab -->
-        <ion-tab-button tab="takeaway">
-          <ion-label>Take Away</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-
-      <!-- Achievements Tab Content -->
-      <ion-tab tab="achievements">
-        <ion-content>
-          <h3>Achievements</h3>
-          <ion-list>
-            <ion-item *ngFor="let achievement of achievements">
-              <ion-label>{{ achievement.title }}</ion-label>
-              <p>{{ achievement.date }}</p>
-            </ion-item>
-          </ion-list>
-        </ion-content>
-      </ion-tab>
-
-      <!-- Take Away Tab Content -->
-      <ion-tab tab="takeaway">
-        <ion-content>
-          <h3>Take Away</h3>
-          <ion-list>
-            <ion-item *ngFor="let item of takeaway">
-              <ion-label>{{ item.item }}</ion-label>
-              <p>Expires on: {{ item.expires }}</p>
-            </ion-item>
-          </ion-list>
-        </ion-content>
-      </ion-tab>
-    </ion-tabs>
   </div>
+  <ion-item lines="full"></ion-item>
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="top"> <!-- Tabs below profile info -->
+      <!-- Achievements Tab -->
+      <ion-tab-button tab="achievements">
+        <ion-label>Achievements</ion-label>
+      </ion-tab-button>
+
+      <!-- Take Away Tab -->
+      <ion-tab-button tab="takeaway">
+        <ion-label>Take Away</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+    <!-- Achievements Tab Content -->
+    <ion-tab tab="achievements">
+      <ion-content>
+        <ion-list>
+          <ion-item *ngFor="let achievement of achievements">
+            <ion-label>{{ achievement.title }}</ion-label>
+            <p>{{ achievement.date }}</p>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+
+    <!-- Take Away Tab Content -->
+    <ion-tab tab="takeaway">
+      <ion-content>
+        <ion-list>
+          <ion-item *ngFor="let item of takeaway">
+            <ion-label>{{ item.item }}</ion-label>
+            <p>Expires on: {{ item.expires }}</p>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
 </ion-content>
