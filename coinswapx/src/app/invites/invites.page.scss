@@ -1,0 +1,131 @@
+/* Apply styles for profile info */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 6px;
+  }
+  
+  .user-details h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px 0;
+  }
+  
+  .user-details p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* Tab styling */
+  ion-tabs {
+    --background: #f4f4f4;
+  }
+  
+  ion-tab-bar {
+    --background: #ffffff;
+    --color-selected: #3880ff;
+  }
+  
+  ion-tab-button {
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  
+  ion-list {
+    margin-top: 2px;
+  }
+  
+  ion-item {
+    --min-height: 5px;
+  }
+  
+  ion-item ion-label {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  ion-item p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Invites Page specific styling */
+  .invites-container {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .image-section img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 6px;
+  }
+
+  .invite-link {
+    display: flex;
+    align-items: center;  /* Align input and button in a row */
+    justify-content: center;
+    width: 100%; /* Full width */
+  }
+  
+  .invite-link input {
+    padding: 8px;
+    width: 75%; /* Adjust width to give space to the button */
+    font-size: 16px;
+    text-align: center;
+    margin-right: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;  /* Rounded corners on the left side */
+  }
+  
+  .invite-link ion-button:hover {
+    background-color: #e0e0e0; /* Slightly darker grey on hover */
+    border-color: #bbb;
+  }
+  
+  ion-item {
+    margin-top: 6px;
+  }
+  
+  
+  .invited-friends-list ion-item {
+    border-bottom: 1px solid #ddd;
+  }
+ /* Success message styles */
+.copy-success-message {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    /* Animation for fading out the message */
+    animation: fadeOut 3s ease-in-out;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+   
+  

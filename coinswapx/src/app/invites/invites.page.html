@@ -1,13 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>invites</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="invites-container">
+  <!-- Success Message -->
+  <div *ngIf="showCopyMessage" class="copy-success-message">
+    <strong>Invite link copied to clipboard!</strong>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">invites</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Image section -->
+  <div class="image-section">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e513d993658133.5e98ba7eb4da9.gif" alt="Invite Image">
+  </div>
+
+  <!-- Invite Link and Copy Button -->
+  <div class="invite-link-section">
+    <p>Your Invite Link:</p>
+    <div class="invite-link">
+      <input type="text" [value]="inviteLink" readonly>
+      <ion-button (click)="copyInviteLink()">Copy</ion-button>
+    </div>
+    <p>Friends You’ve Invited:</p>
+  </div>
+
+  <!-- Separator -->
+  <ion-item lines="full"></ion-item>
+</div>
+
+<ion-content>
+  <!-- Invited Friends List -->
+  <div class="invited-friends-list">
+    <ion-list>
+      <ion-item *ngFor="let friend of invitedFriends">
+        <ion-label>{{ friend }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
