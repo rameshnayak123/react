@@ -1,106 +1,136 @@
-/* Add any additional CSS for locked state */
-.game-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 20px;
-    text-align: center;
+/* Gradient Background only above the line */
+.top-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 350px; /* Adjusted height to fully cover the area above the coin */
+  background: linear-gradient(to bottom, #1d2b64, #f8cdda); /* Gradient effect */
+  z-index: -1; /* Ensure it sits behind all other content */
+  animation: moveStars 30s linear infinite; /* Optional: for moving stars */
+}
+
+/* Keyframe animation for moving stars (Optional) */
+@keyframes moveStars {
+  0% {
+    background-position: 0 0;
   }
-  
-  .coin-container {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  100% {
+    background-position: 100% 100%;
   }
-  
-  .coin {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    background: #f5c200;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-  
-  .coin img {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .countdown-timer {
-    position: absolute;
-    font-size: 24px;
-    color: #fff;
-    font-weight: bold;
-    z-index: 1;
-  }
-  
-  .waves {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: rgba(0, 0, 255, 0.2);
-    animation: wave 1.5s infinite ease-out;
-    z-index: 0;
-    opacity: 0;
-  }
-  
-  @keyframes wave {
-    0% {
-      transform: scale(0);
-      opacity: 0.7;
-    }
-    50% {
-      transform: scale(1.5);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(0);
-      opacity: 0;
-    }
-  }
-  
-  .score-display {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  ion-button {
-    margin-top: 20px;
-  }
-  
-  h3 {
-    font-size: 18px;
-    color: red;
-    margin-top: 20px;
-  }
-  
-  ion-header {
-    ion-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  
-    ion-buttons[slot='start'] {
-      padding: 0;
-    }
-  
-    ion-button {
-      --padding-start: 0;
-      --padding-end: 0;
-    }
-  }
-  
+}
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center; /* Center horizontally */
+  height: 100%;  /* Ensure content fills the entire height of the screen */
+  padding: 0 20px;  /* Add padding to prevent content from touching the screen edges */
+  position: relative;  /* To ensure the gradient background sits correctly */
+  background-color: transparent; /* Transparent to let the gradient background show through */
+}
+
+.coin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  text-align: center;
+  position: relative;  /* To keep it above the background gradient */
+  z-index: 1;  /* Ensure coin sits above the gradient background */
+}
+
+.coin {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #ffd700;  /* Gold color for the coin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Adding a subtle shadow */
+  transition: transform 0.1s ease;  /* Smooth scaling on touch */
+  position: relative;  /* To ensure that the pseudo-element is positioned relative to this container */
+  z-index: 2;  /* Coin sits above the gradient background */
+}
+
+.coin-inner {
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, #ffcc00, #ff9900);  /* Inner gradient effect */
+  border-radius: 50%;
+}
+
+.coin::before {
+  content: "$";  /* Adding the dollar symbol */
+  font-size: 140px;  /* Size of the dollar symbol */
+  color: white;  /* Color of the symbol */
+  font-weight: bold;  /* Make the symbol bold */
+  position: absolute;  /* Absolute positioning inside the coin */
+  top: 50%;  /* Centering the symbol vertically */
+  left: 50%;  /* Centering the symbol horizontally */
+  transform: translate(-50%, -50%);  /* Correct positioning to truly center it */
+}
+
+.coin:active {
+  transform: scale(0.95);  /* Slightly shrink the coin when touched */
+}
+
+/* Timer Bar Container */
+.timer-bar-container {
+  height: 45px;
+  margin-top: 70px; /* Add some space to separate from the coin */
+  padding: 0 8px;  /* Add padding on left and right */
+  box-sizing: border-box;  /* Ensure padding is included in width calculation */
+  position: relative;
+  display: flex;
+  justify-content: center;  /* Center the timer bar inside */
+  z-index: 3;  /* Ensure it is above the gradient and the coin */
+}
+
+.timer-bar {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 1s ease;  /* Smooth animation for the timer bar */
+  border-radius: 25px;
+}
+
+.timer-time {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: white;
+}
+
+.score-display {
+  text-align: center;
+  margin: 20px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+  border-radius: 15px;  /* Rounded corners for the box */
+  box-sizing: border-box;  /* Ensure padding is included in width calculation */
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f8cdda; /* Soft text color to complement the background */
+  margin: 0;
+  padding: 0;
+  text-align: center;  /* Center text */
+}
+
+h3 {
+  font-size: 16px;
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.coin.locked {
+  opacity: 0.6;  /* Make the coin appear dimmed when locked */
+}

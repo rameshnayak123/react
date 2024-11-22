@@ -1,44 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <!-- Close (X) Button in the top left -->
     <ion-buttons slot="start">
       <ion-button (click)="goBack()">
-        <ion-icon name="close"></ion-icon> <!-- X icon -->
+        <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Tap to Hold Game</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="game-container">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Hold the Coin to Increase Score</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <div class="coin-container">
-          <div class="coin" 
-               *ngIf="!isLocked"
-               (touchstart)="startHold()" 
-               (touchend)="stopHold()" 
-               (touchcancel)="stopHold()">
-            <img src="assets/coin.png" alt="Coin" />
-            <div class="countdown-timer">{{ timer }}</div>
-            <div class="waves"></div>
-          </div>
-          <div *ngIf="isLocked">
-            <h3>The game is locked. You can play again after {{ remainingTime }}.</h3>
-          </div>
-          <div class="score-display">
-            <h2>Score: {{ score }}</h2>
-          </div>
-        </div>
+  <div class="score-display">
+    <h2>CSX'e : {{ score | number: '1.1-1' }}</h2>
+  </div>
+  <!-- Gradient background only above the line -->
+  <div class="top-gradient"></div>
 
-        <ion-button expand="full" color="danger" (click)="resetGame()">
-          Reset Game
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
+  <div class="coin-container">
+    <!-- Keep the coin always visible, add the 'locked' class when isLocked is true -->
+    <div class="coin" 
+         [class.locked]="isLocked"
+         (touchstart)="startHold()" 
+         (touchend)="stopHold()" 
+         (touchcancel)="stopHold()" 
+         (mousedown)="startHold()" 
+         (mouseup)="stopHold()" 
+         (mouseleave)="stopHold()">
+      <div class="coin-inner"></div>
+    </div>
+  </div>
+
+  <!-- Timer Bar -->
+  <div class="timer-bar-container">
+    <div class="timer-bar" [style.width.%]="timerBarWidth">
+      <div class="timer-time">
+        <!-- Display the current message based on the timer state -->
+        <span *ngIf="!isLocked && !isTimerRunning">Hold the coin tightly</span>
+        <span *ngIf="isLocked || isTimerRunning">{{ remainingTime }}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="isLocked">
+    <h3>The game is locked. You can play again after.</h3>
   </div>
 </ion-content>
+

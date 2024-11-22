@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Game Locked</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="locked-message">
+    <h3>The game is locked. You can play again after {{ remainingTime }}.</h3>
+    <ion-button expand="full" color="primary" (click)="closeModal()">Close</ion-button>
+  </div>
+</ion-content>

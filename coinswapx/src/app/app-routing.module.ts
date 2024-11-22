@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     path: 'tap-to-hold',
     loadChildren: () => import('./tap-to-hold/tap-to-hold.module').then( m => m.TapToHoldPageModule),
-    canActivate: [DeviceCheckGuard]
+    canActivate: [DeviceCheckGuard] // Apply the device check to tap-to-hold page
   },  
   {
     path: 'invites',
@@ -56,8 +56,8 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'tap-to-hold',
-    loadChildren: () => import('./tap-to-hold/tap-to-hold.module').then( m => m.TapToHoldPageModule)
+    path: 'game-lock-modal',
+    loadChildren: () => import('./game-lock-modal/game-lock-modal.module').then( m => m.GameLockModalPageModule)
   }
 ];
 
