@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Timer -->
+  <div class="top-gradient"></div>
+  <div class="timer">
+    Time Left: {{ timeLeft }} seconds
+  </div>
+
+  <!-- Target Numbers (find these) -->
+  <div class="target-numbers">
+    <h3>Find these numbers:</h3>
+    <div class="numbers">
+      <span *ngFor="let num of targetNumbers" 
+            [class.red]="!foundNumbers[targetNumbers.indexOf(num)]" 
+            [class.found]="foundNumbers[targetNumbers.indexOf(num)]">
+        {{ num }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Random Numbers (bubbles) -->
+  <div class="number-bubbles">
+    <div *ngFor="let number of randomNumbers" 
+         class="bubble" 
+         (click)="selectBubble(number)">
+      {{ number }}
+    </div>
+  </div>
+
+  <!-- Lock Modal -->
+  <div *ngIf="isLocked" class="lock-overlay">
+    <div class="lock-message">
+      <h2>Game Locked</h2>
+      <p>You must wait {{ remainingTime }} before playing again.</p>
+    </div>
+  </div>
+
+  <!-- Game Over message -->
+  <div class="game-over">
+    <p>Your CSX'e: {{ score }} points</p>
+  </div>
+  <div *ngIf="gameOver" class="game-over">
+    <h2>Game Over!</h2>
+  </div>
+</ion-content>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
-import { GameLockModalPage } from '../game-lock-modal/game-lock-modal.page';  // Import ModalPage
+import { GameLockModalPage } from '../game-lock-modal/game-lock-modal.page';
 
 @Component({
   selector: 'app-tap-to-hold',

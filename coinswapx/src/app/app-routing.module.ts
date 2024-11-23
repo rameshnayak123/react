@@ -36,6 +36,11 @@ const routes: Routes = [
     path: 'tap-to-hold',
     loadChildren: () => import('./tap-to-hold/tap-to-hold.module').then( m => m.TapToHoldPageModule),
     canActivate: [DeviceCheckGuard] // Apply the device check to tap-to-hold page
+  },
+  {
+    path: 'curve-path',
+    loadChildren: () => import('./curvepath/curvepath.module').then( m => m.CurvepathModule),
+    canActivate: [DeviceCheckGuard] // Apply the device check to tap-to-hold page
   },  
   {
     path: 'invites',

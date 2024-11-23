@@ -5,19 +5,22 @@
 </ion-header>
 
 <ion-content>
+  <div class="top-gradient"></div>
   <ion-grid>
-    <ion-row>
-      <!-- Loop through games to create a grid of game cards -->
-      <ion-col size="6" size-md="3" *ngFor="let game of games">
-        <ion-card (click)="openGame(game)">
-          <ion-card-header>
-            <ion-card-title>{{ game.name }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-thumbnail>
+    <ion-row class="game-row">
+      <!-- Loop through games to create a row of game cards -->
+      <ion-col size="12" *ngFor="let game of games; let i = index">
+        <ion-card class="game-card" (click)="openGame(game)" [ngStyle]="{'background-color': getRandomColor(i)}">
+          <ion-card-content class="game-content">
+            <!-- Image takes up 25% of the width -->
+            <ion-thumbnail class="game-image">
               <img [src]="game.image" alt="{{ game.name }} image" />
             </ion-thumbnail>
-            <ion-button expand="full" color="primary">Play</ion-button>
+
+            <!-- Title and button take up the remaining 75% -->
+            <div class="game-details">
+              <ion-card-title>{{ game.name }}</ion-card-title>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
